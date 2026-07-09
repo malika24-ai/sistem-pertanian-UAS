@@ -22,7 +22,7 @@
                     @foreach ($records as $record)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $record->crop->cropType->name ?? '-' }} ({{ $record->crop->farm->name ?? '-' }})</td>
+                            <td>{{ $record->crop->name ?? '-' }} (Lahan: {{ $record->crop->farm->name ?? '-' }})</td>
                             <td>{{ \Carbon\Carbon::parse($record->harvest_date)->format('d M Y') }}</td>
                             <td>{{ number_format($record->quantity, 2) }}</td>
                             <td>

@@ -11,7 +11,7 @@
                 <select class="form-select select2-default @error('crop_id') is-invalid @enderror" id="crop_id" name="crop_id" required>
                     <option value="">Pilih Tanaman</option>
                     @foreach ($crops as $c)
-                        <option value="{{ $c->id }}" @selected(old('crop_id', $record->crop_id) == $c->id)>{{ $c->cropType->name ?? '-' }} (Lahan: {{ $c->farm->name ?? '-' }})</option>
+                        <option value="{{ $c->id }}" @selected(old('crop_id', $record->crop_id) == $c->id)>{{ $c->name ?? '-' }} (Lahan: {{ $c->farm->name ?? '-' }})</option>
                     @endforeach
                 </select>
                 @error('crop_id')

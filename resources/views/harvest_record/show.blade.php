@@ -2,7 +2,7 @@
     <div class="list-group-item px-0 border-0">
         <div class="row">
             <div class="col-4 text-muted">Tanaman</div>
-            <div class="col-8 fw-semibold">{{ $record->crop->cropType->name ?? '-' }}</div>
+            <div class="col-8 fw-semibold">{{ $record->crop->name ?? '-' }}</div>
         </div>
     </div>
     <div class="list-group-item px-0 border-0">
