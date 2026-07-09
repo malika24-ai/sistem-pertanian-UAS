@@ -9,7 +9,7 @@ class PlantingSchedule extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['crop_id', 'activity_name', 'scheduled_date', 'status'];
+    protected $fillable = ['crop_id', 'plant_date', 'estimated_harvest_date'];
 
     public function crop()
     {

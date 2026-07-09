@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('planting_schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('crop_id')->constrained('crops')->onDelete('cascade');
-            $table->string('activity_name');
-            $table->date('scheduled_date');
-            $table->string('status')->default('Pending');
+            $table->date('plant_date');
+            $table->date('estimated_harvest_date');
             $table->timestamps();
         });
     }

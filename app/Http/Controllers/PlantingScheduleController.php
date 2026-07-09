@@ -28,9 +28,8 @@ class PlantingScheduleController extends Controller
     {
         $validate = $request->validate([
             'crop_id' => 'required|exists:crops,id',
-            'activity_name' => 'required',
-            'scheduled_date' => 'required|date',
-            'status' => 'required',
+            'plant_date' => 'required|date',
+            'estimated_harvest_date' => 'required|date',
         ]);
 
         PlantingSchedule::create($validate);
@@ -58,9 +57,8 @@ class PlantingScheduleController extends Controller
     {
         $validate = $request->validate([
             'crop_id' => 'required|exists:crops,id',
-            'activity_name' => 'required',
-            'scheduled_date' => 'required|date',
-            'status' => 'required',
+            'plant_date' => 'required|date',
+            'estimated_harvest_date' => 'required|date',
         ]);
 
         $planting_schedule->update($validate);

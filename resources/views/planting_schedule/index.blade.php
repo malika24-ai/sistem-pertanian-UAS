@@ -12,9 +12,8 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Tanaman & Lahan</th>
-                        <th scope="col">Aktivitas</th>
-                        <th scope="col">Tanggal Jadwal</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Tanggal Tanam</th>
+                        <th scope="col">Estimasi Panen</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -22,14 +21,9 @@
                     @foreach ($schedules as $schedule)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $schedule->crop->cropType->name ?? '-' }} ({{ $schedule->crop->farm->name ?? '-' }})</td>
-                            <td>{{ $schedule->activity_name }}</td>
-                            <td>{{ \Carbon\Carbon::parse($schedule->scheduled_date)->format('d M Y') }}</td>
-                            <td>
-                                <span class="badge bg-{{ $schedule->status == 'Completed' ? 'success' : 'warning' }}">
-                                    {{ $schedule->status }}
-                                </span>
-                            </td>
+                            <td>{{ $schedule->crop->name ?? '-' }} ({{ $schedule->crop->farm->name ?? '-' }})</td>
+                            <td>{{ \Carbon\Carbon::parse($schedule->plant_date)->format('d M Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($schedule->estimated_harvest_date)->format('d M Y') }}</td>
                             <td>
                                 <button type="button" class="btn btn-info btn-sm btn-detail"
                                     data-route="{{ route('planting-schedule.show', $schedule) }}">
