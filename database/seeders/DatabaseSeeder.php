@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             CropSeeder::class,
             PlantingScheduleSeeder::class,
             HarvestRecordSeeder::class,
+            FertilizerSeeder::class,
+            PesticideSeeder::class,
         ]);
     }
 }

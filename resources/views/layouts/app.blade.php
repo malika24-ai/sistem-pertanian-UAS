@@ -330,7 +330,23 @@
                 <a class="nav-link {{ request()->routeIs('harvest-record.*') ? '' : 'collapsed' }}"
                     href="{{ route('harvest-record.index') }}">
                     <i class="bx bx-basket"></i>
-                    <span>Hasil Panen</span>
+                    <span>Catatan Panen</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('fertilizer.*') ? '' : 'collapsed' }}"
+                    href="{{ route('fertilizer.index') }}">
+                    <i class="bx bx-droplet"></i>
+                    <span>Penggunaan Pupuk</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('pesticide.*') ? '' : 'collapsed' }}"
+                    href="{{ route('pesticide.index') }}">
+                    <i class="bx bx-shield-quarter"></i>
+                    <span>Penggunaan Pestisida</span>
                 </a>
             </li>
 

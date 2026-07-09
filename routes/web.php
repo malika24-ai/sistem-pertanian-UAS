@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/crop', App\Http\Controllers\CropController::class);
     Route::resource('/planting-schedule', App\Http\Controllers\PlantingScheduleController::class);
     Route::resource('/harvest-record', App\Http\Controllers\HarvestRecordController::class);
+    Route::resource('/fertilizer', App\Http\Controllers\FertilizerController::class);
+    Route::resource('/pesticide', App\Http\Controllers\PesticideController::class);
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::put('/setting/{setting}/update', [SettingController::class, 'update'])->name('setting.update');
 });
