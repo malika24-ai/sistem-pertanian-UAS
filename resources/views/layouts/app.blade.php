@@ -288,11 +288,35 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('user.*') ? '' : 'collapsed' }}"
                         href="{{ route('user.index') }}">
-                        <i class='bx bx-user-pin'></i>
+                        <i class="bx bx-user"></i>
                         <span>User</span>
                     </a>
                 </li>
             @endif
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('farm.*') ? '' : 'collapsed' }}"
+                    href="{{ route('farm.index') }}">
+                    <i class="bx bx-map-alt"></i>
+                    <span>Manajemen Lahan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('planting-schedule.*') ? '' : 'collapsed' }}"
+                    href="{{ route('planting-schedule.index') }}">
+                    <i class="bx bx-calendar"></i>
+                    <span>Jadwal Tanam</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('harvest-record.*') ? '' : 'collapsed' }}"
+                    href="{{ route('harvest-record.index') }}">
+                    <i class="bx bx-basket"></i>
+                    <span>Hasil Panen</span>
+                </a>
+            </li>
 
 
         </ul>

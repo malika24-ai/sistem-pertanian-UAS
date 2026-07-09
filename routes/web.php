@@ -25,7 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/dashboard/update', [DashboardController::class, 'update'])->name('dashboard.update');
 
     Route::resource('/user', UserController::class)->middleware('role:Superadmin');
-
+    
+    Route::resource('/farm', App\Http\Controllers\FarmController::class);
+    Route::resource('/planting-schedule', App\Http\Controllers\PlantingScheduleController::class);
+    Route::resource('/harvest-record', App\Http\Controllers\HarvestRecordController::class);
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::put('/setting/{setting}/update', [SettingController::class, 'update'])->name('setting.update');
 });

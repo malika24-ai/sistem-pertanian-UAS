@@ -19,6 +19,11 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             SettingSeeder::class,
+            FarmSeeder::class,
+            CropTypeSeeder::class,
+            CropSeeder::class,
+            PlantingScheduleSeeder::class,
+            HarvestRecordSeeder::class,
         ]);
     }
 }
