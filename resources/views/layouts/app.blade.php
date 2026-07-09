@@ -350,6 +350,16 @@
                 </a>
             </li>
 
+            <li class="nav-heading">Cuaca & Analitik</li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('weather-log.*') ? '' : 'collapsed' }}"
+                    href="{{ route('weather-log.index') }}">
+                    <i class="bx bx-cloud"></i>
+                    <span>Log Cuaca Harian</span>
+                </a>
+            </li>
+
 
         </ul>
 

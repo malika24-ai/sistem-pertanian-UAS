@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/harvest-record', App\Http\Controllers\HarvestRecordController::class);
     Route::resource('/fertilizer', App\Http\Controllers\FertilizerController::class);
     Route::resource('/pesticide', App\Http\Controllers\PesticideController::class);
+    Route::resource('/weather-log', App\Http\Controllers\WeatherLogController::class);
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::put('/setting/{setting}/update', [SettingController::class, 'update'])->name('setting.update');
 });

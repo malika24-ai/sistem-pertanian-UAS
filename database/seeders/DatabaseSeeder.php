@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             HarvestRecordSeeder::class,
             FertilizerSeeder::class,
             PesticideSeeder::class,
+            WeatherLogSeeder::class,
         ]);
     }
 }
