@@ -9,7 +9,14 @@ class Crop extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['farm_id', 'crop_type_id', 'plant_date', 'status'];
+    protected $fillable = [
+        'farm_id',
+        'crop_type_id',
+        'name',
+        'plant_date',
+        'estimated_harvest_date',
+        'status',
+    ];
 
     public function farm()
     {

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('farm_id')->constrained('farms')->onDelete('cascade');
             $table->foreignId('crop_type_id')->constrained('crop_types')->onDelete('cascade');
+            $table->string('name');
             $table->date('plant_date');
+            $table->date('estimated_harvest_date')->nullable();
             $table->string('status')->default('Active');
             $table->timestamps();
         });

@@ -303,6 +303,14 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('crop.*') ? '' : 'collapsed' }}"
+                    href="{{ route('crop.index') }}">
+                    <i class="bx bx-leaf"></i>
+                    <span>Manajemen Tanaman</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('planting-schedule.*') ? '' : 'collapsed' }}"
                     href="{{ route('planting-schedule.index') }}">
                     <i class="bx bx-calendar"></i>

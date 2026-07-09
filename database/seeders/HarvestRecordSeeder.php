@@ -19,7 +19,9 @@ class HarvestRecordSeeder extends Seeder
             $pastCrop = Crop::create([
                 'farm_id' => $farm->id,
                 'crop_type_id' => $cropType->id,
+                'name' => 'Jagung Musim Lalu',
                 'plant_date' => now()->subDays(120),
+                'estimated_harvest_date' => now()->subDays(10),
                 'status' => 'Harvested'
             ]);
 
