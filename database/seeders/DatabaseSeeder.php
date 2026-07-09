@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             FertilizerSeeder::class,
             PesticideSeeder::class,
             WeatherLogSeeder::class,
+            BuyerSeeder::class,
         ]);
     }
 }

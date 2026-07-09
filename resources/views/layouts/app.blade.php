@@ -297,8 +297,16 @@
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('farm.*') ? '' : 'collapsed' }}"
                     href="{{ route('farm.index') }}">
-                    <i class="bx bx-map-alt"></i>
-                    <span>Manajemen Lahan</span>
+                    <i class="bx bx-map"></i>
+                    <span>Data Lahan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('buyer.*') ? '' : 'collapsed' }}"
+                    href="{{ route('buyer.index') }}">
+                    <i class="bx bx-user-pin"></i>
+                    <span>Data Pembeli</span>
                 </a>
             </li>
 
