@@ -311,6 +311,14 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('crop-type.*') ? '' : 'collapsed' }}"
+                    href="{{ route('crop-type.index') }}">
+                    <i class="bx bx-list-ul"></i>
+                    <span>Kategori Tanaman</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('planting-schedule.*') ? '' : 'collapsed' }}"
                     href="{{ route('planting-schedule.index') }}">
                     <i class="bx bx-calendar"></i>

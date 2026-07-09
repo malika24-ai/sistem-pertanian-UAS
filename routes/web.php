@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/user', UserController::class)->middleware('role:Superadmin');
     
     Route::resource('/farm', App\Http\Controllers\FarmController::class);
+    Route::resource('/crop-type', App\Http\Controllers\CropTypeController::class);
     Route::resource('/crop', App\Http\Controllers\CropController::class);
     Route::resource('/planting-schedule', App\Http\Controllers\PlantingScheduleController::class);
     Route::resource('/harvest-record', App\Http\Controllers\HarvestRecordController::class);

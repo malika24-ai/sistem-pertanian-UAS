@@ -10,9 +10,9 @@ class CropTypeSeeder extends Seeder
     public function run(): void
     {
         $types = [
-            ['name' => 'Padi', 'description' => 'Tanaman padi sawah'],
-            ['name' => 'Jagung', 'description' => 'Jagung manis hibrida'],
-            ['name' => 'Cabai', 'description' => 'Cabai rawit merah']
+            ['name' => 'Pangan', 'description' => 'Tanaman pangan penghasil karbohidrat dan protein.'],
+            ['name' => 'Hortikultura', 'description' => 'Tanaman sayuran, buah-buahan, dan tanaman hias.'],
+            ['name' => 'Perkebunan', 'description' => 'Tanaman industri dan perkebunan tahunan maupun semusim.']
         ];
         foreach ($types as $type) {
             CropType::create($type);

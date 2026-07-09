@@ -13,7 +13,7 @@ class HarvestRecordSeeder extends Seeder
     public function run(): void
     {
         $farm = Farm::first();
-        $cropType = CropType::where('name', 'Jagung')->first();
+        $cropType = CropType::where('name', 'Pangan')->first();
 
         if ($farm && $cropType) {
             $pastCrop = Crop::create([
