@@ -12,8 +12,12 @@ class DashboardController extends Controller
     public function index()
     {
         $totalUsers = \App\Models\User::count();
-        $superadminCount = \App\Models\User::where('role', 'Superadmin')->count();
-        $adminCount = \App\Models\User::where('role', 'Admin')->count();
+        $superadminCount = \App\Models\User::whereHas('role', function ($query) {
+            $query->where('name', 'Superadmin');
+        })->count();
+        $adminCount = \App\Models\User::whereHas('role', function ($query) {
+            $query->where('name', 'Admin');
+        })->count();
 
         return view('dashboard.index', [
             'title' => 'Dashboard',

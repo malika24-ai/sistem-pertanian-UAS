@@ -24,6 +24,21 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'role' => 'Admin',
             ],
+            [
+                'name' => 'Petani Satu',
+                'email' => 'petani1@gmail.com',
+                'role' => 'Petani',
+            ],
+            [
+                'name' => 'Penyuluh Satu',
+                'email' => 'penyuluh1@gmail.com',
+                'role' => 'Penyuluh Pertanian',
+            ],
+            [
+                'name' => 'Pembeli Satu',
+                'email' => 'pembeli1@gmail.com',
+                'role' => 'Pembeli',
+            ],
         ];
 
         foreach ($users as $user) {
@@ -31,10 +46,12 @@ class UserSeeder extends Seeder
                 continue;
             }
 
+            $role = \App\Models\Role::where('name', $user['role'])->first();
+
             User::factory()->create([
                 'name' => $user['name'],
                 'email' => $user['email'],
-                'role' => $user['role'],
+                'role_id' => $role->id ?? 1,
             ]);
         }
     }
