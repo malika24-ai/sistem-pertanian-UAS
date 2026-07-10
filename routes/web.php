@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/harvest-record', App\Http\Controllers\HarvestRecordController::class)->middleware('role:Superadmin,Petani,Penyuluh Pertanian');
     Route::resource('/fertilizer', App\Http\Controllers\FertilizerController::class)->middleware('role:Superadmin,Petani,Penyuluh Pertanian');
     Route::resource('/pesticide', App\Http\Controllers\PesticideController::class)->middleware('role:Superadmin,Petani,Penyuluh Pertanian');
-    Route::resource('/weather-log', App\Http\Controllers\WeatherLogController::class)->middleware('role:Superadmin');
+    Route::resource('/weather-log', App\Http\Controllers\WeatherLogController::class)->middleware('role:Superadmin,Petani');
     Route::resource('/buyer', App\Http\Controllers\BuyerController::class)->middleware('role:Superadmin,Admin');
     Route::resource('/sales-transaction', App\Http\Controllers\SalesTransactionController::class)->middleware('role:Superadmin,Admin,Pembeli');
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');

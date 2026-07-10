@@ -376,7 +376,7 @@
             </li>
             @endif
 
-            @if (Auth::user()->hasRole('Superadmin'))
+            @if (Auth::user()->hasRole('Superadmin') || Auth::user()->hasRole('Petani'))
             <li class="nav-heading">Cuaca & Analitik</li>
 
             <li class="nav-item">
