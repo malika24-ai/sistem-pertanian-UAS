@@ -294,6 +294,7 @@
                 </li>
             @endif
 
+            @if (Auth::user()->hasRole('Superadmin') || Auth::user()->hasRole('Admin') || Auth::user()->hasRole('Petani') || Auth::user()->hasRole('Penyuluh Pertanian'))
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('farm.*') ? '' : 'collapsed' }}"
                     href="{{ route('farm.index') }}">
@@ -301,7 +302,9 @@
                     <span>Data Lahan</span>
                 </a>
             </li>
+            @endif
 
+            @if (Auth::user()->hasRole('Superadmin') || Auth::user()->hasRole('Admin'))
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('buyer.*') ? '' : 'collapsed' }}"
                     href="{{ route('buyer.index') }}">
@@ -309,7 +312,9 @@
                     <span>Data Pembeli</span>
                 </a>
             </li>
+            @endif
 
+            @if (Auth::user()->hasRole('Superadmin') || Auth::user()->hasRole('Admin') || Auth::user()->hasRole('Pembeli'))
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('sales-transaction.*') ? '' : 'collapsed' }}"
                     href="{{ route('sales-transaction.index') }}">
@@ -317,7 +322,9 @@
                     <span>Transaksi Penjualan</span>
                 </a>
             </li>
+            @endif
 
+            @if (Auth::user()->hasRole('Superadmin') || Auth::user()->hasRole('Admin'))
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('crop.*') ? '' : 'collapsed' }}"
                     href="{{ route('crop.index') }}">
@@ -333,7 +340,9 @@
                     <span>Kategori Tanaman</span>
                 </a>
             </li>
+            @endif
 
+            @if (Auth::user()->hasRole('Superadmin') || Auth::user()->hasRole('Petani') || Auth::user()->hasRole('Penyuluh Pertanian'))
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('planting-schedule.*') ? '' : 'collapsed' }}"
                     href="{{ route('planting-schedule.index') }}">
@@ -365,7 +374,9 @@
                     <span>Penggunaan Pestisida</span>
                 </a>
             </li>
+            @endif
 
+            @if (Auth::user()->hasRole('Superadmin'))
             <li class="nav-heading">Cuaca & Analitik</li>
 
             <li class="nav-item">
@@ -375,6 +386,7 @@
                     <span>Log Cuaca Harian</span>
                 </a>
             </li>
+            @endif
 
 
         </ul>

@@ -26,16 +26,16 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/user', UserController::class)->middleware('role:Superadmin');
     
-    Route::resource('/farm', App\Http\Controllers\FarmController::class);
-    Route::resource('/crop-type', App\Http\Controllers\CropTypeController::class);
-    Route::resource('/crop', App\Http\Controllers\CropController::class);
-    Route::resource('/planting-schedule', App\Http\Controllers\PlantingScheduleController::class);
-    Route::resource('/harvest-record', App\Http\Controllers\HarvestRecordController::class);
-    Route::resource('/fertilizer', App\Http\Controllers\FertilizerController::class);
-    Route::resource('/pesticide', App\Http\Controllers\PesticideController::class);
-    Route::resource('/weather-log', App\Http\Controllers\WeatherLogController::class);
-    Route::resource('/buyer', App\Http\Controllers\BuyerController::class);
-    Route::resource('/sales-transaction', App\Http\Controllers\SalesTransactionController::class);
+    Route::resource('/farm', App\Http\Controllers\FarmController::class)->middleware('role:Superadmin,Admin,Petani,Penyuluh Pertanian');
+    Route::resource('/crop-type', App\Http\Controllers\CropTypeController::class)->middleware('role:Superadmin,Admin');
+    Route::resource('/crop', App\Http\Controllers\CropController::class)->middleware('role:Superadmin,Admin');
+    Route::resource('/planting-schedule', App\Http\Controllers\PlantingScheduleController::class)->middleware('role:Superadmin,Petani,Penyuluh Pertanian');
+    Route::resource('/harvest-record', App\Http\Controllers\HarvestRecordController::class)->middleware('role:Superadmin,Petani,Penyuluh Pertanian');
+    Route::resource('/fertilizer', App\Http\Controllers\FertilizerController::class)->middleware('role:Superadmin,Petani,Penyuluh Pertanian');
+    Route::resource('/pesticide', App\Http\Controllers\PesticideController::class)->middleware('role:Superadmin,Petani,Penyuluh Pertanian');
+    Route::resource('/weather-log', App\Http\Controllers\WeatherLogController::class)->middleware('role:Superadmin');
+    Route::resource('/buyer', App\Http\Controllers\BuyerController::class)->middleware('role:Superadmin,Admin');
+    Route::resource('/sales-transaction', App\Http\Controllers\SalesTransactionController::class)->middleware('role:Superadmin,Admin,Pembeli');
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::put('/setting/{setting}/update', [SettingController::class, 'update'])->name('setting.update');
 });
