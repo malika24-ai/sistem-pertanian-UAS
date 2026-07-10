@@ -97,6 +97,19 @@
         </div>
     </div>
 
+    <!-- Productivity Chart -->
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-header bg-white border-bottom">
+            <h5 class="mb-0 fw-bold">
+                <i class='bx bx-bar-chart-alt-2 me-2 text-primary'></i>
+                Laporan Produktivitas (Hasil Panen Bulanan)
+            </h5>
+        </div>
+        <div class="card-body">
+            <canvas id="productivityChart" height="100"></canvas>
+        </div>
+    </div>
+
     <!-- Quick Actions -->
     <div class="card shadow-sm border-0 mb-4">
         <div class="card-header bg-white border-bottom">
@@ -213,6 +226,33 @@
     @endpush
 
     @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const ctx = document.getElementById('productivityChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: {!! json_encode($harvestMonths ?? []) !!},
+                        datasets: [{
+                            label: 'Hasil Panen (kg)',
+                            data: {!! json_encode($harvestQuantities ?? []) !!},
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
     @endpush
 
 </x-app>

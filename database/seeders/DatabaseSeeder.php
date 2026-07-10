@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             PesticideSeeder::class,
             WeatherLogSeeder::class,
             BuyerSeeder::class,
+            SalesTransactionSeeder::class,
         ]);
     }
 }

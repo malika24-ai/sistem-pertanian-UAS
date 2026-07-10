@@ -311,6 +311,14 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('sales-transaction.*') ? '' : 'collapsed' }}"
+                    href="{{ route('sales-transaction.index') }}">
+                    <i class="bx bx-cart"></i>
+                    <span>Transaksi Penjualan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('crop.*') ? '' : 'collapsed' }}"
                     href="{{ route('crop.index') }}">
                     <i class="bx bx-leaf"></i>

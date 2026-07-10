@@ -19,11 +19,29 @@ class DashboardController extends Controller
             $query->where('name', 'Admin');
         })->count();
 
+        $harvests = \App\Models\HarvestRecord::select(
+            DB::raw('strftime("%m", harvest_date) as month'),
+            DB::raw('SUM(quantity) as total_quantity')
+        )
+        ->groupBy('month')
+        ->orderBy('month')
+        ->get();
+        
+        $harvestMonths = [];
+        $harvestQuantities = [];
+        foreach ($harvests as $harvest) {
+            $monthName = \Carbon\Carbon::createFromFormat('m', $harvest->month)->translatedFormat('F');
+            $harvestMonths[] = $monthName;
+            $harvestQuantities[] = $harvest->total_quantity;
+        }
+
         return view('dashboard.index', [
             'title' => 'Dashboard',
             'totalUsers' => $totalUsers,
             'superadminCount' => $superadminCount,
             'adminCount' => $adminCount,
+            'harvestMonths' => $harvestMonths,
+            'harvestQuantities' => $harvestQuantities,
         ]);
     }
 
