@@ -104,8 +104,8 @@ class ReportController extends Controller
 
             $data['planting_schedules'] = $applyPeriod(PlantingSchedule::with('crop.farm')->whereHas('crop.farm', $farmQuery), 'plant_date')->get();
             $data['harvest_records'] = $applyPeriod(HarvestRecord::with('crop.farm')->whereHas('crop.farm', $farmQuery), 'harvest_date')->get();
-            $data['fertilizers'] = $applyPeriod(Fertilizer::with('farm')->whereHas('farm', $farmQuery), 'application_date')->get();
-            $data['pesticides'] = $applyPeriod(Pesticide::with('farm')->whereHas('farm', $farmQuery), 'application_date')->get();
+            $data['fertilizers'] = $applyPeriod(Fertilizer::with('crop.farm')->whereHas('crop.farm', $farmQuery), 'usage_date')->get();
+            $data['pesticides'] = $applyPeriod(Pesticide::with('crop.farm')->whereHas('crop.farm', $farmQuery), 'usage_date')->get();
         }
 
         if ($role == 'Pembeli') {

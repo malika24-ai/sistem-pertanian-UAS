@@ -114,26 +114,26 @@ class ReportExport implements WithMultipleSheets
             $formattedData = $data['fertilizers']->map(function($item) {
                 return [
                     $item->id,
-                    $item->farm->name ?? '-',
+                    $item->crop->name ?? '-',
                     $item->name,
-                    $item->quantity,
-                    $item->application_date
+                    $item->dosage,
+                    $item->usage_date
                 ];
             });
-            $sheets[] = new DataSheetExport($formattedData, 'Penggunaan Pupuk', ['ID', 'Lahan', 'Nama Pupuk', 'Kuantitas', 'Tanggal Aplikasi']);
+            $sheets[] = new DataSheetExport($formattedData, 'Penggunaan Pupuk', ['ID', 'Tanaman', 'Nama Pupuk', 'Dosis', 'Tanggal Aplikasi']);
         }
 
         if (isset($data['pesticides'])) {
             $formattedData = $data['pesticides']->map(function($item) {
                 return [
                     $item->id,
-                    $item->farm->name ?? '-',
+                    $item->crop->name ?? '-',
                     $item->name,
-                    $item->quantity,
-                    $item->application_date
+                    $item->dosage,
+                    $item->usage_date
                 ];
             });
-            $sheets[] = new DataSheetExport($formattedData, 'Penggunaan Pestisida', ['ID', 'Lahan', 'Nama Pestisida', 'Kuantitas', 'Tanggal Aplikasi']);
+            $sheets[] = new DataSheetExport($formattedData, 'Penggunaan Pestisida', ['ID', 'Tanaman', 'Nama Pestisida', 'Dosis', 'Tanggal Aplikasi']);
         }
 
         // If no data is available for this role, just create an empty sheet

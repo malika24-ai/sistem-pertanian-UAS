@@ -130,14 +130,14 @@
     @if(isset($data['fertilizers']) && count($data['fertilizers']) > 0)
         <h4>Penggunaan Pupuk</h4>
         <table>
-            <tr><th>ID</th><th>Lahan</th><th>Nama Pupuk</th><th>Kuantitas</th><th>Tanggal Aplikasi</th></tr>
+            <tr><th>ID</th><th>Tanaman</th><th>Nama Pupuk</th><th>Dosis</th><th>Tanggal Aplikasi</th></tr>
             @foreach($data['fertilizers'] as $row)
             <tr>
                 <td>{{ $row->id }}</td>
-                <td>{{ $row->farm->name ?? '-' }}</td>
+                <td>{{ $row->crop->name ?? '-' }}</td>
                 <td>{{ $row->name }}</td>
-                <td>{{ $row->quantity }}</td>
-                <td>{{ $row->application_date }}</td>
+                <td>{{ $row->dosage }}</td>
+                <td>{{ $row->usage_date }}</td>
             </tr>
             @endforeach
         </table>
@@ -146,14 +146,14 @@
     @if(isset($data['pesticides']) && count($data['pesticides']) > 0)
         <h4>Penggunaan Pestisida</h4>
         <table>
-            <tr><th>ID</th><th>Lahan</th><th>Nama Pestisida</th><th>Kuantitas</th><th>Tanggal Aplikasi</th></tr>
+            <tr><th>ID</th><th>Tanaman</th><th>Nama Pestisida</th><th>Dosis</th><th>Tanggal Aplikasi</th></tr>
             @foreach($data['pesticides'] as $row)
             <tr>
                 <td>{{ $row->id }}</td>
-                <td>{{ $row->farm->name ?? '-' }}</td>
+                <td>{{ $row->crop->name ?? '-' }}</td>
                 <td>{{ $row->name }}</td>
-                <td>{{ $row->quantity }}</td>
-                <td>{{ $row->application_date }}</td>
+                <td>{{ $row->dosage }}</td>
+                <td>{{ $row->usage_date }}</td>
             </tr>
             @endforeach
         </table>
