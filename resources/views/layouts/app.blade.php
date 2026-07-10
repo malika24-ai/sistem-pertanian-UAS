@@ -376,6 +376,14 @@
             </li>
             @endif
 
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('report.*') ? '' : 'collapsed' }}"
+                    href="{{ route('report.index') }}">
+                    <i class="bx bx-file"></i>
+                    <span>Laporan Periodik</span>
+                </a>
+            </li>
+
             @if (Auth::user()->hasRole('Superadmin') || Auth::user()->hasRole('Petani'))
             <li class="nav-heading">Cuaca & Analitik</li>
 

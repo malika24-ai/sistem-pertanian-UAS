@@ -38,4 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/sales-transaction', App\Http\Controllers\SalesTransactionController::class)->middleware('role:Superadmin,Admin,Pembeli');
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::put('/setting/{setting}/update', [SettingController::class, 'update'])->name('setting.update');
+
+    Route::get('/report', [App\Http\Controllers\ReportController::class, 'index'])->name('report.index');
+    Route::post('/report/export-excel', [App\Http\Controllers\ReportController::class, 'exportExcel'])->name('report.export_excel');
+    Route::post('/report/export-pdf', [App\Http\Controllers\ReportController::class, 'exportPdf'])->name('report.export_pdf');
 });
