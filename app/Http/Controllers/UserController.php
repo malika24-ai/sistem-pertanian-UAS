@@ -39,7 +39,15 @@ class UserController extends Controller
 
         $validate = $request->validate([
             'name' => 'required',
-            'role_id' => 'required|exists:roles,id',
+            'role_id' => [
+                'required',
+                'exists:roles,id',
+                function ($attribute, $value, $fail) {
+                    if (auth()->user()->role->name !== 'Superadmin') {
+                        $fail('Hanya Superadmin yang bisa assign semua role dan permission.');
+                    }
+                },
+            ],
             'password' => 'required|min:8',
             'passwordconfirm' => 'required|same:password',
             'email' => 'required|email|lowercase|unique:users,email',
@@ -111,7 +119,15 @@ class UserController extends Controller
 
         $validate = $request->validate([
             'name' => 'required',
-            'role_id' => 'required|exists:roles,id',
+            'role_id' => [
+                'required',
+                'exists:roles,id',
+                function ($attribute, $value, $fail) {
+                    if (auth()->user()->role->name !== 'Superadmin') {
+                        $fail('Hanya Superadmin yang bisa assign semua role dan permission.');
+                    }
+                },
+            ],
             'password' => 'nullable|min:8',
             'passwordconfirm' => 'nullable|same:password',
             'email' => 'required|email|lowercase|unique:users,email,' . $user->id,
